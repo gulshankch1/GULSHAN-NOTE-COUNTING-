@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Counting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Note Counting</h2>
+        <div class="input-group">
+            <label for="denomination1">₹2000 Notes</label>
+            <input type="number" id="denomination1" placeholder="Enter quantity">
+        </div>
+        <div class="input-group">
+            <label for="denomination2">₹500 Notes</label>
+            <input type="number" id="denomination2" placeholder="Enter quantity">
+        </div>
+        <div class="input-group">
+            <label for="denomination3">₹200 Notes</label>
+            <input type="number" id="denomination3" placeholder="Enter quantity">
+        </div>
+        <div class="input-group">
+            <label for="denomination4">₹100 Notes</label>
+            <input type="number" id="denomination4" placeholder="Enter quantity">
+        </div>
+        <button class="btn" onclick="calculateTotal()">Calculate Total</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const denomination1 = Number(document.getElementById('denomination1').value) || 0;
+            const denomination2 = Number(document.getElementById('denomination2').value) || 0;
+            const denomination3 = Number(document.getElementById('denomination3').value) || 0;
+            const denomination4 = Number(document.getElementById('denomination4').value) || 0;
+
+            const total = (denomination1 * 2000) + (denomination2 * 500) + 
+                          (denomination3 * 200) + (denomination4 * 100);
+
+            document.getElementById('result').innerText = `Total Amount: ₹${total}`;
+        }
+    </script>
+</body>
+</html>
